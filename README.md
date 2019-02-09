@@ -8,28 +8,27 @@ keep customers may leave (reducing churn or attrition), because it is usually fa
 expensive to keep a customer than to acquire a new one
 
 Procedure followed
-STEP 1:
+# STEP 1:
 Randomly initialise the weights to small numbers close to 0 (but not 0).
-STEP 2:
+# STEP 2:
 Input the first observation of your dataset in the input layer, each feature in one input node.
-STEP 3:
+# STEP 3:
 Forward-Propagation: from left to right, the neurons are activated in a way that the impact
-of each
-neuron&#39;s activation is limited by the weights. Propagate the activations until getting the
+of each neuron& activation is limited by the weights. Propagate the activations until getting the
 predicted result y.
-STEP 4:
+# STEP 4:
 Compare the predicted result to the actual result. Measure the generated error.
-STEP 5:
+# STEP 5:
 Back-Propagation: from right to left, the error is back-propagated. Update the weights
 according to
 how much they are responsible for the error. The learning rate decides by how much we
 update the weights.
-STEP 6:
+# STEP 6:
 Repeat Steps 1 to 5 and update the weights after each observation (Reinforcement Learning).
 Or:
 Repeat Steps 1 to 5 but update the weights only after a batch of observations (Batch
 Learning).
-STEP 7:
+# STEP 7:
 
 When the whole training set passed through the ANN, that makes an epoch. Redo more
 epochs.
@@ -41,12 +40,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-#	Importing the dataset
+# Importing the dataset
 dataset = pd.read_csv('Churn_Modelling.csv')
 X = dataset.iloc[:, 3:13].values
 y = dataset.iloc[:, 13].values
 
-6.4	Encoding categorical data
+ # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_X_1 = LabelEncoder()
 X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
@@ -56,7 +55,7 @@ onehotencoder = OneHotEncoder(categorical_features = [1])
 X = onehotencoder.fit_transform(X).toarray()
 X = X[:, 1:]
 
-	Splitting the dataset into training and test set
+ # Splitting the dataset into training and test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
