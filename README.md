@@ -1,13 +1,6 @@
-#PREDICTING CUSTOMER SWIRL USING ARTIFICIAL NEURAL NETWORK
-
-To be competitive in this market, banks have to be able to predict possible churners and take
-proactive actions to retain valuable loyal customers. Building an effective and accurate
-customer churn prediction model has become an important research problem for both
-academics and practitioners in recent years. Profiling enables a company to act in order to
-keep customers may leave (reducing churn or attrition), because it is usually far less
-expensive to keep a customer than to acquire a new one
-
-Procedure followed
+# PREDICTING CUSTOMER SWIRL USING ARTIFICIAL NEURAL NETWORK
+Churn’s prediction is a great asset in the business strategy for retention applying before the exit of customers
+We created a real model with python, applied on a bank environment. This model will tell us if the customer is going or not to exit from the bankProcedure followed
 # STEP 1:
 Randomly initialise the weights to small numbers close to 0 (but not 0).
 # STEP 2:
@@ -59,7 +52,8 @@ X = X[:, 1:]
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
-	Making the ANN
+# Making the ANN
+
 # Importing the Keras libraries and packages
 import keras
 from keras.models import Sequential
@@ -83,7 +77,7 @@ classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = [
 # Fitting the ANN to the Training set
 classifier.fit(X_train, y_train, batch_size = 10, nb_epoch = 100)
 
-	Making the PREDICTIONS AND EVALUATING THE MODEL
+# Making the PREDICTIONS AND EVALUATING THE MODEL
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
@@ -93,8 +87,8 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 
 
-The confusion matrix is calculated as shown
-  we got a total of (2162) correct predictions and  (709) incorrect predictions with an accuracy of 83%
+# The confusion matrix is calculated as shown
+  We got a total of (2162) correct predictions and  (709) incorrect predictions with an accuracy of 83%
 
 
 
